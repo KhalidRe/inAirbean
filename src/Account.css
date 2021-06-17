@@ -1,0 +1,46 @@
+.Account {
+  text-align: center;
+  background-color: #2f2926;
+  min-height: 100vh;
+  font-family: PT Serif;
+  color: white;
+}
+.ProfileImg {
+  margin-top: 120px;
+}
+.nav {
+  position: absolute;
+  z-index: 4;
+  top: 2%;
+  left: 3%;
+}
+.name {
+  margin: 10px;
+}
+.email {
+  margin: 0;
+}
+.Mid {
+  margin-top: 100px;
+  text-align: left;
+  margin-left: 25px;
+}
+.id {
+  text-align: left;
+}
+.date {
+  text-align: right;
+}
+.OrderList {
+  width: 90vw;
+  margin-left: 20px;
+}
+.price {
+  text-align: right;
+}
+.sum {
+  text-align: left;
+}
+hr {
+  width: 90vw;
+}

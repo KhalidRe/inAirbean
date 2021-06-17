@@ -1,0 +1,314 @@
+fetch("http://localhost:8001/api/coffee")
+  .then((response) => response.json())
+  .then((result) => {
+    console.log(result.menu);
+    items = result.menu;
+  });
+export default class Products extends Component {
+  render() {
+    return (
+      <div>
+        <ul>
+          {items.map((thing, item) => {
+            return (
+              <li className="hej" key={item}>
+                <span>
+                  <img src={AddItem} className="AddItem" />
+                  {thing.title}
+                  <span>................</span>
+                  {thing.price} kr
+                </span>
+                <p className="bryggd">Bryggd på Månadens Bönor</p>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    );
+  }
+}
+-----------------------------------------------
+MENY...
+
+import React, { Component } from "react";
+import header from "./assets/Header.png";
+import footer from "./assets/footer.png";
+import "./Meny.css";
+
+import Basket from "./component/Basket";
+import Products from "./component/Products";
+import SecondBasket from "./component/SecondBasket";
+import ProductListing from "./container/ProductListing";
+
+let list = [];
+let i;
+
+class Meny extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { products: [], cartItems: [] };
+  }
+
+  render() {
+    return (
+      <div className="Meny">
+        <img src={header} className="HeadImg" />
+
+        <div className="Shopwrap">
+          <ProductListing />
+          <h1 className="HeadText">MENY</h1>
+          <SecondBasket
+            cartItems={this.state.cartItems}
+            handleRemoveFromCart={this.handleRemoveCart}
+          />
+
+          <div className="Items">
+            <Products handleAddToCart={this.handleAddToCart} />
+          </div>
+        </div>
+        <img src={footer} className="LowImg" />
+      </div>
+    );
+  }
+}
+
+export default Meny;
+--------------------------------------------------
+
+how do I map though this?
+```const dispatch = useDispatch();
+
+  const getProducts = useSelector((state) => state.getProducts);
+  const { products, loading, error } = getProducts;
+
+  useEffect(() => {
+    dispatch(listProducts());
+  }, [dispatch]);
+  return (
+    <div className="Meny">
+      <img src={header} className="HeadImg" />
+      <Basket />
+      <div className="Shopwrap">
+        <h1 className="HeadText">MENY</h1>
+
+        <div className="Items"></div>
+      </div>
+      <img src={footer} className="LowImg" />
+    </div>
+  );
+}
+```
+
+
+
+<li key={idx}>
+                  <img src={AddItem}></img>
+                  {item.title}........{item.price}
+                </li>
+---------------------------------------------              
+import * as actionTypes from "../constans/cartConstants";
+
+export const cartReducer = (state = { cartItems: [] }, action) => {
+  switch (action.type) {
+    case actionTypes.ADD_TO_CART:
+      const item = action.payload;
+      const existItem = state.cartItems.find((X) => X.product === item.product);
+      if (existItem) {
+        return {
+          ...state,
+          cartItems: state.cartItems.map((x) =>
+            x.product === existItem.product ? item : x
+          ),
+        };
+      } else {
+        return {
+          ...state,
+          cartItems: [...state.cartItems, item],
+        };
+      }
+    case actionTypes.REMOVE_FROM_CART:
+      return {
+        ...state,
+        cartItems: state.cartItems.filter((x) => x.product !== action.payload),
+      };
+
+    default:
+      return state;
+  }
+};
+
+
+
+
+
+-------------------------
+<div>
+                        <p className="inputstxt">Namn</p>
+                        <input type="text" id="userN" name="Name" />
+                      </div>
+                      <br />
+                      <div>
+                        <p className="inputstxt">Epost</p>
+                        <input type="text" id="Mail" name="Email" />
+                      </div>
+                      <div>
+                        <span>
+                          <input type="radio" name="check" />
+                          <label>GDPR Ok!</label>
+                        </span>
+                      </div>
+                      <Link to="/account">
+                        <button className="LoginB">Logga in</button>
+                      </Link>
+
+
+                      ------------------------------------------------------------
+                      import { Formik, Form, Field, ErrorMessage } from "formik";
+import axios from "axios";
+import header from "./assets/Header.png";
+import { useHistory } from "react-router-dom";
+import logo from "./assets/logo.svg";
+import { useState } from "react";
+
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Menu from "./component/Menu";
+import "./App.css";
+import Account from "./Account";
+
+function Home() {
+  const history = useHistory();
+  const [username, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+  };
+
+  const loginSubmit = (event) => {
+    event.preventDefault();
+    console.log(`Your state values:
+                     username: ${username}
+                     email: ${email}`);
+    fetch("http://localhost:8001/api/account", {
+      body: JSON.stringify({ username: username, email: email }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        if (result === "they gone and did it") {
+          console.log(result);
+          setTimeout(() => {
+            alert("sheeeeeesh");
+          }, 1000);
+        } else {
+          console.log(result);
+          setTimeout(() => {
+            alert("oooookkkeeeeeee");
+          }, 1000);
+        }
+        history.push("/account");
+      });
+  };
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  return (
+    <Router>
+      <Menu />
+      <Route
+        path="/"
+        exact
+        render={(props) => (
+          <>
+            <div className="App">
+              <img src={header} className="HeadImg" alt="logo" />
+              <div className="App-login">
+                <div className="banner">
+                  <img src={logo} alt="logo" />
+                  <h2>
+                    Välkommen till <br /> AirBean-familjen!
+                  </h2>
+                  <p>
+                    Genom att skapa ett konto nedan kan <br /> du spara och se
+                    din orderhistorik.
+                  </p>
+                  <div className="inputs">
+                    <Formik
+                      initialValues={{ email: "", username: "" }}
+                      validate={(values) => {
+                        const errors = {};
+                        if (!values.email) {
+                          errors.email = "Required";
+                        } else if (
+                          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
+                            values.email
+                          )
+                        ) {
+                          errors.email = "Invalid email address";
+                        }
+                        return errors;
+                      }}
+                      onSubmit={(values, { setSubmitting }) => {
+                        setTimeout(() => {
+                          alert(JSON.stringify(values, null, 2));
+                          setSubmitting(false);
+                        }, 400);
+                      }}
+                    >
+                      {({ isSubmitting }) => (
+                        <Form onSubmit={loginSubmit} className="form">
+                          <p className="inputstxt">Namn</p>
+                          <Field
+                            className="input"
+                            value={username}
+                            onChange={handleNameChange}
+                            type="name"
+                            name="name"
+                            id="userN"
+                          />
+
+                          <p className="inputstxt">Epost</p>
+                          <Field
+                            className="input"
+                            value={email}
+                            type="email"
+                            name="email"
+                            onChange={handleEmailChange}
+                            id="Mail"
+                          />
+                          <div>
+                            <span>
+                              <input type="radio" name="check" />
+                              <label>GDPR Ok!</label>
+                            </span>
+                          </div>
+                          <div className="button">
+                            <button
+                              className="LoginB"
+                              type="submit"
+                              disabled={isSubmitting}
+                            >
+                              Logga in
+                            </button>
+                          </div>
+                        </Form>
+                      )}
+                    </Formik>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </>
+        )}
+      />
+
+      <Route path="/account" exact component={Account}></Route>
+    </Router>
+  );
+}
+
+export default Home;

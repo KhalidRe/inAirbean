@@ -1,38 +1,86 @@
+body {
+  margin: 0;
+}
 .App {
   text-align: center;
+  background-color: #2f2926;
+  min-height: 100vh;
+  font-family: PT Serif;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.HeadImg {
+  position: absolute;
+  z-index: 2;
+  left: 0%;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.LowImg {
+  position: absolute;
+  z-index: 2;
+  left: 0%;
+  top: 100%;
+}
+.App-login {
+  background-color: #f3e4e1;
+  position: absolute;
+  top: 12%;
+  left: 5%;
+  width: 90vw;
+  height: 85vh;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
 }
-
+.banner {
+  margin-top: 20px;
+}
+.inputs {
+  width: 80vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+.inputstxt {
+  margin: 0px;
+  text-align: left;
+}
+#Mail {
+  border-radius: 10px;
+  border: #2f2926 2px solid;
+  background-color: #f3e4e1;
+  width: 80vw;
+  height: 5vh;
+}
+#userN {
+  border-radius: 10px;
+  border: #2f2926 2px solid;
+  background-color: #f3e4e1;
+  width: 80vw;
+  height: 5vh;
+}
+.LoginB {
+  margin-top: 60px;
+  margin-left: 23px;
+  background-color: #2f2926;
+  border-radius: 25px;
+  border: none;
+  color: white;
+  font-family: PT Serif;
+  font-weight: bold;
+  font-size: 24px;
+  width: 248px;
+  height: 55px;
+}
 .App-link {
   color: #61dafb;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+Menu {
+  position: absolute;
 }

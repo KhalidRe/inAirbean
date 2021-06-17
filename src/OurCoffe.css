@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@1,300&display=swap");
+
+body {
+  background-color: #f3e4e1;
+  margin: 0;
+}
+.OurCoffe {
+  text-align: center;
+  background-color: #f3e4e1;
+  min-height: 100vh;
+  font-family: PT Serif;
+}
+
+.HeadImg {
+  position: absolute;
+  z-index: 2;
+  left: 0%;
+  top: 0%;
+}
+.OurCoffe-text {
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  width: 80%;
+  text-align: left;
+}
+p {
+  font-family: "Work Sans", sans-serif;
+}

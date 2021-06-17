@@ -1,0 +1,59 @@
+.Basket {
+  position: absolute;
+  z-index: 2;
+  right: 1%;
+}
+.Amount {
+  background-color: #e5674e;
+  z-index: 10;
+  position: absolute;
+  right: 20%;
+  top: 10%;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+}
+.overlay {
+  position: absolute;
+  z-index: 20;
+  border-radius: 3px;
+  background-color: #ffffff;
+  height: 80vh;
+  width: 85vw;
+  left: 7.5%;
+  top: 9%;
+}
+.triangle {
+  background-color: #ffffff;
+  width: 20px;
+  position: absolute;
+  right: 2%;
+  top: -1%;
+  transform: rotate(45deg);
+  color: #ffffff;
+}
+.flexit {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.flux {
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 5px;
+  border: solid black;
+}
+.increase {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+.decrease {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}

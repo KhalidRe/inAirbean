@@ -1,0 +1,39 @@
+body {
+  background-color: #f3e4e1;
+  margin: 0;
+}
+.Meny {
+  text-align: center;
+  background-color: #f3e4e1;
+  min-height: 120vh;
+  font-family: PT Serif;
+  text-align: left;
+}
+ul {
+}
+.AddItem {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 0;
+}
+.Shopwrap {
+  position: absolute;
+  top: 15%;
+  left: 15%;
+}
+
+.HeadText {
+  text-align: center;
+}
+.hej {
+  margin-bottom: 50px;
+}
+.bryggd {
+  font-family: work, sans-serif;
+  font-size: 12px;
+  margin-left: 17px;
+}
+.LowImg {
+  top: 120%;
+}
