@@ -27,3 +27,14 @@ body {
 p {
   font-family: "Work Sans", sans-serif;
 }
+.boss {
+  margin-top: 900px;
+  border-radius: 50px;
+}
+.LowImg2 {
+  margin-top: 20px;
+  margin-bottom: -50px;
+}
+.eva {
+  margin-bottom: -10px;
+}

@@ -6,13 +6,14 @@ import logo from "./assets/logo.svg";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setActive, setAll } from "./redux/actions/userAction";
+import { setMenu } from "./redux/actions/productActions";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Menu from "./component/Menu";
 import "./App.css";
 import Account from "./Account";
 
 function Home() {
-  const history = useHistory();
+  const check = useHistory();
   const [username, setName] = useState("");
   const [email, setEmail] = useState("");
   const handleNameChange = (event) => {
@@ -44,7 +45,7 @@ function Home() {
             alert("oooookkkeeeeeee");
           }, 1000);
         }
-        history.push("/account");
+        check.push("/ourcoffe");
       });
   };
   const dispatch = useDispatch();
@@ -54,22 +55,21 @@ function Home() {
   });
   const [meny, setUser] = useState([]);
   const [accountsLoaded, setMenuLoaded] = useState(false);
+
   useEffect(() => {
     (async () => {
       setMenuLoaded(false);
-      let response = await fetch("http://localhost:8001/api/account");
+      let response = await fetch("http://localhost:8001/api/coffee");
       let data = await response.json();
-      console.log(data.accounts);
-      dispatch(setAll(data.accounts));
-      dispatch(setActive(data.activeAccount));
-      setUser(data.accounts);
+      console.log(data.menu);
+      dispatch(setMenu(data.menu));
+
       setMenuLoaded(true);
-      setAll(() => {
-        return data.accounts;
+      setMenu(() => {
+        return data.menu;
       });
     })();
   }, []);
-
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };

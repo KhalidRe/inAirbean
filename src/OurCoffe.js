@@ -1,8 +1,28 @@
 import header from "./assets/Header.png";
+import footer from "./assets/footer.png";
+import boss from "./assets/boss.jpg";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setActive, setAll } from "./redux/actions/userAction";
 
 import "./OurCoffe.css";
 
 function OurCoffe() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    (async () => {
+      let response = await fetch("http://localhost:8001/api/account");
+
+      let data = await response.json();
+      console.log(data.accounts);
+      dispatch(setAll(data.accounts));
+      dispatch(setActive(data.activeAccount));
+
+      setAll(() => {
+        return data.accounts;
+      });
+    })();
+  }, []);
   return (
     <div className="OurCoffe">
       <img src={header} className="HeadImg" alt="logo" />
@@ -37,6 +57,11 @@ function OurCoffe() {
           black, galão flavour, milk aromatic turkish skinny crema.
         </p>
       </div>
+      <img src={boss} className="boss" />
+      <h1 className="eva">Eva Cortado</h1>
+      <p>VD & Grundare</p>
+
+      <img src={footer} className="LowImg2" />
     </div>
   );
 }

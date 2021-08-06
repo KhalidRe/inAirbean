@@ -1,0 +1,42 @@
+.baken {
+  position: absolute;
+  background-color: #e5674e;
+  width: 100vw;
+  height: 100vh;
+  color: #ffffff;
+}
+.ordernumber {
+  text-align: center;
+  font-weight: 500;
+  font-size: 16px;
+  margin-top: 68px;
+}
+.drone {
+  margin-left: 80px;
+  margin-top: 40px;
+}
+.HeadBest {
+  font-weight: 700;
+  text-align: center;
+  font-size: 36px;
+  margin-top: 40px;
+}
+.ETA {
+  text-align: center;
+  font-size: 21px;
+  margin-top: 50px;
+}
+.OkCool {
+  background-color: white;
+  text-decoration: none;
+  border: none;
+  width: 184px;
+  height: 55px;
+  font-weight: 700;
+  border-radius: 50px;
+
+  font-size: 24px;
+  font-family: PT serif;
+  margin-left: 100px;
+  margin-top: 50px;
+}

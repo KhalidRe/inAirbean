@@ -20,7 +20,7 @@ export const SidebarData = [
   },
   {
     title: "Orderstatus",
-    path: "/orderstatus",
+    path: "/order",
     cName: "nav-text",
   },
 ];

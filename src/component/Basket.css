@@ -35,25 +35,75 @@
   color: #ffffff;
 }
 .flexit {
-  width: 90%;
   display: flex;
   flex-direction: row;
+  width: 90%;
+
+  margin-top: 50px;
+
   justify-content: space-between;
   align-items: center;
-  margin-top: 50px;
 }
 
 .flux {
-  border-width: 0 2px 2px 0;
-  display: inline-block;
-  padding: 5px;
   border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
 }
 .increase {
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
 }
+.bhead {
+  margin-left: 50px;
+}
 .decrease {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
+}
+.cart {
+  height: 90%;
+  width: 90%;
+  background: #ffffff;
+  position: fixed;
+  top: 50px;
+  margin: 20px;
+}
+.titel {
+  text-align: center;
+}
+.cartItem {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  row-gap: 20px;
+}
+.total {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+.produkt {
+  margin-left: 20px;
+  line-height: 2px;
+}
+
+.btn {
+  line-height: 0;
+}
+
+.purchase {
+  background-color: #2f2926;
+  color: white;
+  margin-left: 50px;
+  height: 50px;
+  width: 220px;
+  border: none;
+  border-radius: 25px;
 }

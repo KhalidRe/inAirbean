@@ -9,13 +9,18 @@ body {
   font-family: PT Serif;
   text-align: left;
 }
-ul {
+.listing {
+}
+.desc {
+  margin-top: 0px;
+  margin-bottom: 40px;
 }
 .AddItem {
   margin: 0;
   padding: 0;
   position: absolute;
-  left: 0;
+  margin-left: -70px;
+  margin-top: -13px;
 }
 .Shopwrap {
   position: absolute;

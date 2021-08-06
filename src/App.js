@@ -6,6 +6,8 @@ import OurCoffe from "./OurCoffe";
 import Account from "./Account";
 import Home from "./Home";
 import Meny from "./Meny";
+import Order from "./Order";
+
 import "./App.css";
 
 function App() {
@@ -17,6 +19,7 @@ function App() {
         <Route path="/ourcoffe" component={OurCoffe} />
         <Route path="/account" component={Account} />
         <Route path="/meny" component={Meny} />
+        <Route path="/order" component={Order} />
       </Switch>
     </Router>
   );

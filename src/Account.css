@@ -24,17 +24,26 @@
   margin-top: 100px;
   text-align: left;
   margin-left: 25px;
+  width: 100px;
+}
+.kvitto {
+  width: 100vw;
 }
 .id {
+  margin-right: 200px;
+  margin-left: -20px;
+  margin-bottom: 50px;
   text-align: left;
+  font-weight: 400;
+}
+.totalt {
+  margin-right: 145px;
+  margin-left: -20px;
 }
 .date {
-  text-align: right;
+  margin: 0px;
 }
-.OrderList {
-  width: 90vw;
-  margin-left: 20px;
-}
+
 .price {
   text-align: right;
 }
@@ -43,4 +52,22 @@
 }
 hr {
   width: 90vw;
+}
+.TableHead {
+  width: 20vw;
+}
+.all {
+  margin-right: 200px;
+  margin-left: -20px;
+  margin-bottom: 50px;
+  text-align: left;
+}
+.orderhistorik {
+  padding-bottom: 50px;
+}
+.totalt {
+  color: rgba(255, 255, 255, 0.5);
+}
+.somestyle {
+  color: rgba(255, 255, 255, 0.5);
 }

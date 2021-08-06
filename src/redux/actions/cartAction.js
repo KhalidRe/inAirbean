@@ -29,3 +29,15 @@ export const setCart = (cart) => {
     payload: cart,
   };
 };
+export const addQuantity = (price) => {
+  return {
+    type: "ADD_QUANTITY",
+    payload: price,
+  };
+};
+export const redQuantity = (price) => {
+  return {
+    type: "REDUCE_QUANTITY",
+    payload: price,
+  };
+};
